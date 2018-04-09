@@ -1,6 +1,5 @@
 package com.xamlab.schedulee.viewModels.Base.implementation;
 
-import android.arch.lifecycle.ViewModel;
 import android.databinding.Observable;
 import android.databinding.ObservableArrayMap;
 import android.databinding.ObservableField;
@@ -9,7 +8,6 @@ import android.util.Log;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.Result;
 import com.baidu.unbiz.fluentvalidator.Validator;
-import com.baidu.unbiz.fluentvalidator.ValidatorChain;
 import com.xamlab.schedulee.viewModels.Base.IViewModelValidator;
 
 import java.util.ArrayList;
@@ -21,16 +19,12 @@ import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toSimple;
 public class BaseViewModelValidator implements IViewModelValidator {
 
 
-
     private final String TAG = "BaseValidateableViewModel : LOGS ";
 
-    private Map<ObservableField<Object>, Validator<Object>> validationRules = new HashMap<>();
+    private Map<ObservableField, Validator> validationRules = new HashMap<>();
 
     private ObservableArrayMap<ObservableField, String> errors = new ObservableArrayMap<>();
 
-    public ObservableArrayMap<ObservableField, String> getErrors() {
-        return errors;
-    }
 
     private HashMap<ObservableField, Class> propertiesClassMap = new HashMap<>();
 
@@ -79,7 +73,6 @@ public class BaseViewModelValidator implements IViewModelValidator {
         if (property.get() == null) {
             Class c = propertiesClassMap.get(property);
             try {
-                Object o = c.newInstance();
                 property.set(c.newInstance());
             } catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
@@ -111,10 +104,6 @@ public class BaseViewModelValidator implements IViewModelValidator {
         return isValid;
     }
 
-    @Override
-    public ObservableArrayMap<ObservableField, String> getAllErrors() {
-        return getErrors();
-    }
 
     @Override
     public String getError(ObservableField property) {
@@ -122,6 +111,21 @@ public class BaseViewModelValidator implements IViewModelValidator {
             return errors.get(property);
         }
         return "";
+    }
+
+    @Override
+    public ObservableArrayMap<ObservableField, String> getErrors() {
+        return errors;
+    }
+
+    @Override
+    public ArrayList<String> getAllErrorsInString() {
+        ArrayList<String> res = new ArrayList<>();
+        for (ObservableField item : errors.keySet()) {
+            res.add(errors.get(item));
+        }
+        return res;
+
     }
 
 

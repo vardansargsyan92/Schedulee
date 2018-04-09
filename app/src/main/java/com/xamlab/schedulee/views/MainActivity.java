@@ -37,12 +37,17 @@ public class MainActivity extends AppCompatActivity {
         ((MainApplication) getApplication()).getDataServiceComponent().inject(this);
         textView.setText(new Date(dataService.getDate()).toString());
 
-        Button button= findViewById(R.id.validate_btn);
+        Button button = findViewById(R.id.validate_btn);
         button.setOnClickListener(view -> {
             viewModel.validator.validateAll();
-            textView.setText(viewModel.validator.getError(viewModel.name));
-        });
 
+            StringBuilder builder = new StringBuilder();
+            for (String item : viewModel.validator.getAllErrorsInString()) {
+                builder.append(item);
+                builder.append("\n");
+            }
+            textView.setText(builder);
+        });
 
 
     }
