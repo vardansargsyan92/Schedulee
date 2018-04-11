@@ -4,25 +4,23 @@ import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableField;
 
 import com.xamlab.schedulee.viewModels.Base.IValidateableViewModel;
-import com.xamlab.schedulee.viewModels.Base.IViewModelValidator;
 
-public class MainViewModel extends ViewModel implements IValidateableViewModel{
+public class MainViewModel extends ViewModel implements IValidateableViewModel {
+
 
     public MainValidator validator;
+
+    public TestCommand testCommand;
 
     @Override
     public MainValidator getValidator() {
         return validator;
     }
 
-    /*@Override
-    public IViewModelValidator getValidator() {
-        return null;
-    }*/
 
     public MainViewModel() {
         validator = new MainValidator(this);
-
+        testCommand = new TestCommand(this);
     }
 
     public ObservableField<String> name = new ObservableField<>();

@@ -2,8 +2,8 @@ package com.xamlab.schedulee.views;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     private MainViewModel viewModel;
 
+    ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(new Date(dataService.getDate()).toString());
 
         Button button = findViewById(R.id.validate_btn);
-        button.setOnClickListener(view -> {
+        /*button.setOnClickListener(view -> {
             viewModel.validator.validateAll();
 
             StringBuilder builder = new StringBuilder();
@@ -47,15 +49,14 @@ public class MainActivity extends AppCompatActivity {
                 builder.append("\n");
             }
             textView.setText(builder);
-        });
+        });*/
 
 
     }
 
     private void initBindings() {
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         binding.setMainViewModel(viewModel);
-
     }
 }
