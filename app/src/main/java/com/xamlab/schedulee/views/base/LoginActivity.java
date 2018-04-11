@@ -1,14 +1,10 @@
 package com.xamlab.schedulee.views.base;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.support.v7.app.AppCompatActivity;
 
-import com.xamlab.schedulee.MainApplication;
 import com.xamlab.schedulee.R;
 import com.xamlab.schedulee.services.IDataService;
-
-import java.util.Date;
 
 import javax.inject.Inject;
 
@@ -23,4 +19,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
     }
+
+
 }

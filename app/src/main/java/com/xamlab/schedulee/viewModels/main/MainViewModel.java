@@ -8,6 +8,7 @@ import com.xamlab.schedulee.viewModels.Base.IValidateableViewModel;
 public class MainViewModel extends ViewModel implements IValidateableViewModel {
 
 
+
     public MainValidator validator;
 
     public TestCommand testCommand;
