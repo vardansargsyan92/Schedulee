@@ -3,7 +3,7 @@ package com.xamlab.schedulee.viewModels.main;
 import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableField;
 
-import com.xamlab.schedulee.viewModels.Base.IValidateableViewModel;
+import com.xamlab.schedulee.viewModels.base.IValidateableViewModel;
 
 public class MainViewModel extends ViewModel implements IValidateableViewModel {
 

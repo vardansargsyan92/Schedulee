@@ -13,15 +13,20 @@
         <activity
             android:name=".views.base.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".views.authentication.BaseAuthActivity" />
-        <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".views.authentication.BaseAuthActivity" />
+        <activity android:name=".views.MainActivity">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
         </activity>
     </application>
 

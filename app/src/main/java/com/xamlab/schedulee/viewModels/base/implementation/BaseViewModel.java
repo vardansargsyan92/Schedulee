@@ -1,4 +1,4 @@
-package com.xamlab.schedulee.viewModels.Base.implementation;
+package com.xamlab.schedulee.viewModels.base.implementation;
 
 import android.arch.lifecycle.ViewModel;
 

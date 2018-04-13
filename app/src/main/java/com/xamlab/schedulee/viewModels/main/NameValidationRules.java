@@ -1,6 +1,7 @@
-package com.xamlab.schedulee.utilities;
+package com.xamlab.schedulee.viewModels.main;
 
 import com.baidu.unbiz.fluentvalidator.ValidatorContext;
+import com.xamlab.schedulee.utilities.BaseValidationRules;
 
 
 public class NameValidationRules extends BaseValidationRules<String> {

@@ -1,4 +1,4 @@
-package com.xamlab.schedulee.viewModels.Base.implementation;
+package com.xamlab.schedulee.viewModels.base.implementation;
 
 import android.databinding.Observable;
 import android.databinding.ObservableArrayMap;
@@ -8,7 +8,7 @@ import android.util.Log;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.Result;
 import com.baidu.unbiz.fluentvalidator.Validator;
-import com.xamlab.schedulee.viewModels.Base.IViewModelValidator;
+import com.xamlab.schedulee.viewModels.base.IViewModelValidator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +30,8 @@ public class BaseViewModelValidator implements IViewModelValidator {
 
 
     protected void addRule(ObservableField property, Class propertyClass, Validator validator) {
+
+
 
         property.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
             @Override

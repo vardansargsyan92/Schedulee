@@ -72,13 +72,15 @@
 
         <Button
             android:id="@+id/validate_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             app:command="@{mainViewModel.testCommand}"
             android:layout_marginStart="8dp"
-            android:text="@{mainViewModel.testCommand.enabled ? `Enabled` : `Disabled` }"
+            android:background="@color/button"
+            android:textColor="@color/white"
+            android:text="@{mainViewModel.testCommand.enabled ? `Validate All` : `Disabled` }"
             android:enabled="@{mainViewModel.testCommand.enabled==true}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

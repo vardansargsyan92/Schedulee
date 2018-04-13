@@ -1,9 +1,8 @@
 package com.xamlab.schedulee.viewModels.main;
 
 
-import com.xamlab.schedulee.utilities.NameValidationRules;
-import com.xamlab.schedulee.utilities.PasswordValidationRules;
-import com.xamlab.schedulee.viewModels.Base.implementation.BaseViewModelValidator;
+import com.xamlab.schedulee.viewModels.auth.PasswordValidationRules;
+import com.xamlab.schedulee.viewModels.base.implementation.BaseViewModelValidator;
 
 public class MainValidator extends BaseViewModelValidator {
 

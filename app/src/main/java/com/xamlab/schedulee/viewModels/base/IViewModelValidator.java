@@ -1,4 +1,4 @@
-package com.xamlab.schedulee.viewModels.Base;
+package com.xamlab.schedulee.viewModels.base;
 
 import android.databinding.ObservableArrayMap;
 import android.databinding.ObservableField;

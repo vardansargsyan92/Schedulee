@@ -1,11 +1,12 @@
-package com.xamlab.schedulee.utilities;
+package com.xamlab.schedulee.viewModels.auth;
 
 import com.baidu.unbiz.fluentvalidator.ValidatorContext;
+import com.xamlab.schedulee.utilities.BaseValidationRules;
 
 public class PasswordValidationRules extends BaseValidationRules<String> {
 
-    private final String passwordIsRequired = "The password is required";
-    private final String passwordIsToShort = "The password is to short";
+    private final String passwordIsRequired = "Password is required";
+    private final String passwordIsToShort = "Password is to short";
 
     @Override
     public boolean validate(ValidatorContext context, String s) {
