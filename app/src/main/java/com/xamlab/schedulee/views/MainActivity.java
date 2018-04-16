@@ -14,6 +14,7 @@ import com.xamlab.schedulee.databinding.ActivityMainBinding;
 import com.xamlab.schedulee.services.IDataService;
 import com.xamlab.schedulee.viewModels.main.MainViewModel;
 
+
 import java.util.Date;
 
 import javax.inject.Inject;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject
     public IDataService dataService;
+
 
 
     private TextView textView;
