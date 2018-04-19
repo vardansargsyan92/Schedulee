@@ -9,6 +9,8 @@ import android.widget.Toast;
 import com.xamlab.schedulee.MainApplication;
 import com.xamlab.schedulee.R;
 import com.xamlab.schedulee.databinding.ActivityLoginBinding;
+import com.xamlab.schedulee.di.DaggerGithubComponent;
+import com.xamlab.schedulee.di.IGithubService;
 import com.xamlab.schedulee.services.IDataClient;
 import com.xamlab.schedulee.services.IDataService;
 import com.xamlab.schedulee.services.Repo;
@@ -48,12 +50,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void test() {
-        Retrofit retrofitBuilder = new Retrofit.Builder()
+        /*Retrofit retrofitBuilder = new Retrofit.Builder()
                 .baseUrl("https://api.github.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        IDataClient client = retrofitBuilder.create(IDataClient.class);
-        Call<List<Repo>> call = client.getListOfRepos("vardansargsyan92");
+        IDataClient client = retrofitBuilder.create(IDataClient.class);*/
+        IGithubService service= DaggerGithubComponent.create().gihubService();
+        Call<List<Repo>> call = service.getListRepos("vardansargsyan92");
 
 
         call.enqueue(new Callback<List<Repo>>() {
