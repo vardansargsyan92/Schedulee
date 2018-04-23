@@ -10,6 +10,8 @@ import com.xamlab.schedulee.MainApplication;
 import com.xamlab.schedulee.R;
 import com.xamlab.schedulee.databinding.ActivityLoginBinding;
 import com.xamlab.schedulee.di.DaggerGithubComponent;
+import com.xamlab.schedulee.di.GithubComponent;
+import com.xamlab.schedulee.di.GithubModule;
 import com.xamlab.schedulee.di.IGithubService;
 import com.xamlab.schedulee.services.IDataClient;
 import com.xamlab.schedulee.services.IDataService;
@@ -55,8 +57,12 @@ public class LoginActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         IDataClient client = retrofitBuilder.create(IDataClient.class);*/
-        IGithubService service= DaggerGithubComponent.create().gihubService();
-        Call<List<Repo>> call = service.getListRepos("vardansargsyan92");
+        GithubComponent component = DaggerGithubComponent
+                .builder()
+                .githubModule(new GithubModule("https://api.github.com/"))
+                .build();
+
+        Call<List<Repo>> call = component.gihubService().getListRepos("vardansargsyan92");
 
 
         call.enqueue(new Callback<List<Repo>>() {
@@ -79,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         viewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         binding.setViewModel(viewModel);
+
     }
 
 
